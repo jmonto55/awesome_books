@@ -136,6 +136,9 @@ window.onload = () => {
 
 function listHandler(event) {
   event.preventDefault();
+  listLink.style.color = 'blue'
+  addBookLink.style.color = 'black'
+  contactLink.style.color = 'black'
   booksSection.style.display = 'block';
   addBookSection.style.display = 'none';
   contactSection.style.display = 'none';
@@ -143,6 +146,9 @@ function listHandler(event) {
 
 function addBookHandler(event) {
   event.preventDefault();
+  listLink.style.color = 'black'
+  addBookLink.style.color = 'blue'
+  contactLink.style.color = 'black'
   booksSection.style.display = 'none';
   addBookSection.style.display = 'flex';
   contactSection.style.display = 'none';
@@ -150,6 +156,9 @@ function addBookHandler(event) {
 
 function contactHandler(event) {
   event.preventDefault();
+  listLink.style.color = 'black'
+  addBookLink.style.color = 'black'
+  contactLink.style.color = 'blue'
   booksSection.style.display = 'none';
   addBookSection.style.display = 'none';
   contactSection.style.display = 'block';
