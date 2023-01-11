@@ -1,6 +1,5 @@
 const booksList = document.getElementById('books_list');
 const bookForm = document.getElementById('booksForm');
-const formSection = document.getElementById('form_section');
 const listLink = document.getElementById('listLink');
 const addBookLink = document.getElementById('addBookLink');
 const contactLink = document.getElementById('contactLink');
