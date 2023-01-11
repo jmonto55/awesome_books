@@ -178,3 +178,8 @@ footer {
 .visible {
   display: flex;
 }
+
+#books_section {
+  display: flex;
+  flex-direction: column;
+}

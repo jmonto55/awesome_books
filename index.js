@@ -4,6 +4,7 @@ const formSection = document.getElementById('form_section');
 const listLink = document.getElementById('listLink');
 const addBookLink = document.getElementById('addBookLink');
 const contactLink = document.getElementById('contactLink');
+
 const contactSection = document.getElementById('contact-section');
 const addBookSection = document.getElementById('form_section');
 const booksSection = document.getElementById('books_section');
@@ -124,27 +125,28 @@ window.onload = () => {
   booksSection.classList.add('visible');
   retrieveData();
   loadBooks();
+
 };
 
 function listHandler(event) {
   event.preventDefault();
-  booksSection.classList.toggle('visible');
-  addBookSection.classList.toggle('visible');
-  contactSection.classList.toggle('visible');
+  booksSection.style.display = 'block';
+  addBookSection.style.display = 'none';
+  contactSection.style.display = 'none';
 }
 
 function addBookHandler(event) {
   event.preventDefault();
-  addBookSection.classList.toggle('visible');
-  booksSection.classList.toggle('visible');
-  contactSection.classList.toggle('visible');
+  booksSection.style.display = 'none';
+  addBookSection.style.display = 'flex';
+  contactSection.style.display = 'none';
 }
 
 function contactHandler(event) {
   event.preventDefault();
-  contactSection.classList.toggle('visible');
-  booksSection.classList.toggle('visible');
-  addBookSection.classList.toggle('visible');
+  booksSection.style.display = 'none';
+  addBookSection.style.display = 'none';
+  contactSection.style.display = 'block';;
 }
 
 listLink.addEventListener('click', listHandler);
