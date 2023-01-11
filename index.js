@@ -61,14 +61,7 @@ function storageAvailable(type) {
     return true;
   } catch (e) {
     return (
-      e instanceof DOMException &&
-      (e.code === 22 ||
-        e.code === 1014 ||
-        e.name === 'QuotaExceededError' ||
-        e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
-      storage &&
-      storage.length !== 0
-    );
+      e instanceof DOMException && (e.code === 22 || e.code === 1014 || e.name === 'QuotaExceededError' || e.name === 'NS_ERROR_DOM_QUOTA_REACHED') && storage && storage.length !== 0);
   }
 }
 
@@ -110,7 +103,7 @@ bookForm.addEventListener('submit', (event) => {
   event.preventDefault();
   const newBook = new Book(
     bookForm.elements.title.value,
-    bookForm.elements.author.value
+    bookForm.elements.author.value,
   );
   Book.addBook(newBook);
   bookForm.reset();
@@ -136,9 +129,9 @@ window.onload = () => {
 
 function listHandler(event) {
   event.preventDefault();
-  listLink.style.color = 'blue'
-  addBookLink.style.color = 'black'
-  contactLink.style.color = 'black'
+  listLink.style.color = 'blue';
+  addBookLink.style.color = 'black';
+  contactLink.style.color = 'black';
   booksSection.style.display = 'block';
   addBookSection.style.display = 'none';
   contactSection.style.display = 'none';
@@ -146,9 +139,9 @@ function listHandler(event) {
 
 function addBookHandler(event) {
   event.preventDefault();
-  listLink.style.color = 'black'
-  addBookLink.style.color = 'blue'
-  contactLink.style.color = 'black'
+  listLink.style.color = 'black';
+  addBookLink.style.color = 'blue';
+  contactLink.style.color = 'black';
   booksSection.style.display = 'none';
   addBookSection.style.display = 'flex';
   contactSection.style.display = 'none';
@@ -156,9 +149,9 @@ function addBookHandler(event) {
 
 function contactHandler(event) {
   event.preventDefault();
-  listLink.style.color = 'black'
-  addBookLink.style.color = 'black'
-  contactLink.style.color = 'blue'
+  listLink.style.color = 'black';
+  addBookLink.style.color = 'black';
+  contactLink.style.color = 'blue';
   booksSection.style.display = 'none';
   addBookSection.style.display = 'none';
   contactSection.style.display = 'block';
