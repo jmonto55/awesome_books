@@ -76,7 +76,9 @@ body {
   position: relative;
 }
 
-.book_item:nth-child(odd) { background: rgb(206, 206, 206); }
+.book_item:nth-child(odd) {
+  background: rgb(206, 206, 206);
+}
 
 span {
   margin-left: 3%;
@@ -147,4 +149,37 @@ footer {
   height: 40px;
   border-top: none;
   background-color: silver;
+}
+
+#contact-section {
+  margin: 3rem 15%;
+  text-align: left;
+}
+
+#contact-section h2 {
+  margin-bottom: 3rem;
+  font-weight: 400;
+}
+
+#contact-section p {
+  line-height: 1.5rem;
+  font-weight: 400;
+}
+
+#contact-items-article {
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+
+#contact-items-article li {
+  line-height: 1.5rem;
+  font-weight: 400;
+}
+
+.not-visible {
+  display: none;
+}
+
+.visible {
+  display: block;
 }

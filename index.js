@@ -1,5 +1,6 @@
 const booksList = document.getElementById('books_list');
 const bookForm = document.getElementById('booksForm');
+const formSection = document.getElementById('form_section');
 
 let booksArray = [];
 
@@ -50,7 +51,15 @@ function storageAvailable(type) {
     storage.removeItem(x);
     return true;
   } catch (e) {
-    return (e instanceof DOMException && (e.code === 22 || e.code === 1014 || e.name === 'QuotaExceededError' || e.name === 'NS_ERROR_DOM_QUOTA_REACHED') && storage && storage.length !== 0);
+    return (
+      e instanceof DOMException &&
+      (e.code === 22 ||
+        e.code === 1014 ||
+        e.name === 'QuotaExceededError' ||
+        e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+      storage &&
+      storage.length !== 0
+    );
   }
 }
 
@@ -92,7 +101,7 @@ bookForm.addEventListener('submit', (event) => {
   event.preventDefault();
   const newBook = new Book(
     bookForm.elements.title.value,
-    bookForm.elements.author.value,
+    bookForm.elements.author.value
   );
   Book.addBook(newBook);
   bookForm.reset();
@@ -106,6 +115,7 @@ function loadBooks() {
 }
 
 window.onload = () => {
+  formSection.classList.add('not-visible');
   retrieveData();
   loadBooks();
 };
