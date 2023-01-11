@@ -12,9 +12,9 @@
       <nav class="navbar">
         <h2 class="navbar_logo">Awesome Books</h2>
         <ul class="navbar_items">
-          <li class="nav_item"><a href="">List</a></li>
-          <li class="nav_item"><a href="">Add new</a></li>
-          <li class="nav_item"><a href="">Contact</a></li>
+          <li class="nav_item"><a href="" id="listLink">List</a></li>
+          <li class="nav_item"><a href="" id="addBookLink">Add new</a></li>
+          <li class="nav_item"><a href="" id="contactLink">Contact</a></li>
         </ul>
       </nav>
       <p class="date">March 19th 2023, 9:53:50am</p>
@@ -26,7 +26,7 @@
         <ul id="books_list" class="book_list"></ul>
       </section>
 
-      <section id="form_section" class="form_section">
+      <section id="form_section" class="form_section not-visible">
         <div class="section_line"></div>
         <form class="form" action="post" id="booksForm">
           <h2 class="form_title">Add a new book</h2>
@@ -54,7 +54,7 @@
         </form>
       </section>
 
-      <section id="contact-section">
+      <section id="contact-section" class="not-visible">
         <header>
           <h2>Contact information</h2>
         </header>

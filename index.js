@@ -1,6 +1,12 @@
 const booksList = document.getElementById('books_list');
 const bookForm = document.getElementById('booksForm');
 const formSection = document.getElementById('form_section');
+const listLink = document.getElementById('listLink');
+const addBookLink = document.getElementById('addBookLink');
+const contactLink = document.getElementById('contactLink');
+const contactSection = document.getElementById('contact-section');
+const addBookSection = document.getElementById('form_section');
+const booksSection = document.getElementById('books_section');
 
 let booksArray = [];
 
@@ -115,7 +121,32 @@ function loadBooks() {
 }
 
 window.onload = () => {
-  formSection.classList.add('not-visible');
+  booksSection.classList.add('visible');
   retrieveData();
   loadBooks();
 };
+
+function listHandler(event) {
+  event.preventDefault();
+  booksSection.classList.toggle('visible');
+  addBookSection.classList.toggle('visible');
+  contactSection.classList.toggle('visible');
+}
+
+function addBookHandler(event) {
+  event.preventDefault();
+  addBookSection.classList.toggle('visible');
+  booksSection.classList.toggle('visible');
+  contactSection.classList.toggle('visible');
+}
+
+function contactHandler(event) {
+  event.preventDefault();
+  contactSection.classList.toggle('visible');
+  booksSection.classList.toggle('visible');
+  addBookSection.classList.toggle('visible');
+}
+
+listLink.addEventListener('click', listHandler);
+addBookLink.addEventListener('click', addBookHandler);
+contactLink.addEventListener('click', contactHandler);

@@ -35,11 +35,6 @@ body {
   cursor: pointer;
 }
 
-.nav_item:active {
-  border-color: blue;
-  color: blue;
-}
-
 .nav_item:last-child {
   border-right: none;
 }
@@ -181,5 +176,5 @@ footer {
 }
 
 .visible {
-  display: block;
+  display: flex;
 }
