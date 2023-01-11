@@ -12,6 +12,42 @@ body {
   animation: animation 40s ease-in-out 0s infinite alternate forwards;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  border: solid black 2px;
+  margin: 0.5rem;
+  padding: 1rem;
+}
+
+.navbar_items {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav_item {
+  border-right: solid black 2px;
+  padding-right: 1rem;
+  cursor: pointer;
+}
+
+.nav_item:last-child {
+  border-right: none;
+}
+
+.nav_item a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#date {
+  text-align: right;
+  margin: 1rem;
 }
 
 .head_title {
@@ -36,11 +72,13 @@ body {
   position: relative;
 }
 
+.book_item:nth-child(odd) {
+  background: rgb(206, 206, 206);
+}
+
 span {
   margin-left: 3%;
 }
-
-li:nth-child(odd) { background: rgb(206, 206, 206); }
 
 .remove {
   position: absolute;
@@ -51,18 +89,10 @@ li:nth-child(odd) { background: rgb(206, 206, 206); }
 }
 
 .form_section {
+  margin-top: 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.section_line {
-  margin-top: 30px;
-  border: #000 solid 1px;
-  width: 20%;
-  max-width: 150px;
-  box-shadow: 3px 1px #000;
-  background-color: #000;
 }
 
 .form {
@@ -72,7 +102,7 @@ li:nth-child(odd) { background: rgb(206, 206, 206); }
 }
 
 .form_title {
-  margin: 20px;
+  margin-bottom: 4rem;
 }
 
 .form_input {
@@ -88,4 +118,63 @@ li:nth-child(odd) { background: rgb(206, 206, 206); }
   cursor: pointer;
   position: absolute;
   right: 0;
+  width: 50px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.copyright {
+  padding: 1rem;
+  border: solid black 2px;
+  text-align: left;
+  margin: 0.2rem;
+}
+
+.footer_bar {
+  border: solid black 2px;
+  height: 40px;
+  width: 100%;
+  background-color: silver;
+}
+
+#contact-section {
+  margin-top: 5rem;
+  text-align: left;
+  margin-left: calc(50% - 250px);
+}
+
+#contact-section h2 {
+  margin-bottom: 3rem;
+}
+
+#contact-section p {
+  line-height: 1.5rem;
+  font-weight: 400;
+}
+
+#contact-items-article {
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+
+#contact-items-article li {
+  line-height: 1.5rem;
+  font-weight: 400;
+}
+
+.not-visible {
+  display: none;
+}
+
+.visible {
+  display: flex;
+}
+
+#books_section {
+  display: flex;
+  flex-direction: column;
 }

@@ -1,5 +1,14 @@
 const booksList = document.getElementById('books_list');
 const bookForm = document.getElementById('booksForm');
+const listLink = document.getElementById('listLink');
+const addBookLink = document.getElementById('addBookLink');
+const contactLink = document.getElementById('contactLink');
+
+const contactSection = document.getElementById('contact-section');
+const addBookSection = document.getElementById('form_section');
+const booksSection = document.getElementById('books_section');
+
+const dateElement = document.getElementById('date');
 
 let booksArray = [];
 
@@ -50,7 +59,8 @@ function storageAvailable(type) {
     storage.removeItem(x);
     return true;
   } catch (e) {
-    return (e instanceof DOMException && (e.code === 22 || e.code === 1014 || e.name === 'QuotaExceededError' || e.name === 'NS_ERROR_DOM_QUOTA_REACHED') && storage && storage.length !== 0);
+    return (
+      e instanceof DOMException && (e.code === 22 || e.code === 1014 || e.name === 'QuotaExceededError' || e.name === 'NS_ERROR_DOM_QUOTA_REACHED') && storage && storage.length !== 0);
   }
 }
 
@@ -105,7 +115,47 @@ function loadBooks() {
   });
 }
 
+function setDateTime() {
+  dateElement.innerHTML = new Date().toLocaleString();
+}
+
 window.onload = () => {
+  booksSection.classList.add('visible');
   retrieveData();
   loadBooks();
+  setDateTime();
 };
+
+function listHandler(event) {
+  event.preventDefault();
+  listLink.style.color = 'blue';
+  addBookLink.style.color = 'black';
+  contactLink.style.color = 'black';
+  booksSection.style.display = 'block';
+  addBookSection.style.display = 'none';
+  contactSection.style.display = 'none';
+}
+
+function addBookHandler(event) {
+  event.preventDefault();
+  listLink.style.color = 'black';
+  addBookLink.style.color = 'blue';
+  contactLink.style.color = 'black';
+  booksSection.style.display = 'none';
+  addBookSection.style.display = 'flex';
+  contactSection.style.display = 'none';
+}
+
+function contactHandler(event) {
+  event.preventDefault();
+  listLink.style.color = 'black';
+  addBookLink.style.color = 'black';
+  contactLink.style.color = 'blue';
+  booksSection.style.display = 'none';
+  addBookSection.style.display = 'none';
+  contactSection.style.display = 'block';
+}
+
+listLink.addEventListener('click', listHandler);
+addBookLink.addEventListener('click', addBookHandler);
+contactLink.addEventListener('click', contactHandler);
