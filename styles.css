@@ -58,7 +58,7 @@ li:nth-child(odd) { background: rgb(206, 206, 206); }
 
 .section_line {
   margin-top: 30px;
-  border:#000 solid 1px;
+  border: #000 solid 1px;
   width: 20%;
   max-width: 150px;
   box-shadow: 3px 1px #000;
@@ -70,6 +70,7 @@ li:nth-child(odd) { background: rgb(206, 206, 206); }
   width: 50%;
   max-width: 300px;
 }
+
 .form_title {
   margin: 20px;
 }

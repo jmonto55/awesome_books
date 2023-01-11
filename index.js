@@ -1,27 +1,6 @@
 const booksList = document.getElementById('books_list');
 const bookForm = document.getElementById('booksForm');
 
-class Book {
-  constructor(title, author) {
-    this.title = title;
-    this.author = author;
-    this.id = Math.random();
-  }
-
-  addBook(book) {
-    const newBook = new Book(book.title, book.author);
-    booksArray.push(newBook);
-    storeData(booksArray);
-    window.location.reload();
-  }
-
-  static removeBook(book) {
-    booksArray = booksArray.filter((e) => e.id !== book.id);
-    console.log(booksArray);
-    storeData(booksArray);
-  }
-}
-
 let booksArray = [];
 
 let availableStorage;
@@ -41,10 +20,24 @@ function storeData(booksArray) {
   }
 }
 
-function loadBooks() {
-  booksArray.forEach((book) => {
-    appendBookToDOM(book);
-  });
+class Book {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+    this.id = Math.random();
+  }
+
+  static addBook(book) {
+    const newBook = new Book(book.title, book.author);
+    booksArray.push(newBook);
+    storeData(booksArray);
+    window.location.reload();
+  }
+
+  static removeBook(book) {
+    booksArray = booksArray.filter((e) => e.id !== book.id);
+    storeData(booksArray);
+  }
 }
 
 window.onload = () => {
@@ -62,15 +55,7 @@ function storageAvailable(type) {
     storage.removeItem(x);
     return true;
   } catch (e) {
-    return (
-      e instanceof DOMException &&
-      (e.code === 22 ||
-        e.code === 1014 ||
-        e.name === 'QuotaExceededError' ||
-        e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
-      storage &&
-      storage.length !== 0
-    );
+    return (e instanceof DOMException && (e.code === 22 || e.code === 1014 || e.name === 'QuotaExceededError' || e.name === 'NS_ERROR_DOM_QUOTA_REACHED') && storage && storage.length !== 0);
   }
 }
 
@@ -92,7 +77,7 @@ const appendBookToDOM = (book) => {
   removeButton.setAttribute('id', book.id);
   removeButton.classList.add("remove")
   bookItem.innerHTML = `
-    <span>"${book.title}" by ${book.author}</span> 
+    <span>"${book.title}"   by   ${book.author}</span> 
    
     `;
   bookItem.append(removeButton);
@@ -115,7 +100,13 @@ bookForm.addEventListener('submit', (event) => {
     bookForm.elements.title.value,
     bookForm.elements.author.value
   );
-  newBook.addBook(newBook);
+  Book.addBook(newBook);
   bookForm.reset();
   appendBookToDOM(newBook);
 });
+
+function loadBooks() {
+  booksArray.forEach((book) => {
+    appendBookToDOM(book);
+  });
+}
