@@ -71,18 +71,18 @@ const removeBookFromDOM = (book) => {
 const appendBookToDOM = (book) => {
   const bookItem = document.createElement('li');
   const removeButton = document.createElement('button');
-  bookItem.classList.add("book_item");
+  bookItem.classList.add('book_item');
   removeButton.innerText = 'Remove';
   removeButton.setAttribute('type', 'button');
   removeButton.setAttribute('id', book.id);
-  removeButton.classList.add("remove")
+  removeButton.classList.add('remove');
   bookItem.innerHTML = `
     <span>"${book.title}"   by   ${book.author}</span> 
    
     `;
   bookItem.append(removeButton);
   booksList.append(bookItem);
-  removeButton.addEventListener('click',() => {
+  removeButton.addEventListener('click', () => {
     Book.removeBook(book);
     removeBookFromDOM(book);
   });
