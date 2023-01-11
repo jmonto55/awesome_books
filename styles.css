@@ -129,3 +129,22 @@ span {
   position: absolute;
   right: 0;
 }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.copyright {
+  padding: 1rem;
+  border: solid black 2px;
+  text-align: left;
+}
+
+.footer_bar {
+  border: solid black 2px;
+  height: 40px;
+  border-top: none;
+  background-color: silver;
+}
