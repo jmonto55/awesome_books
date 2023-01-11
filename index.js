@@ -9,6 +9,8 @@ const contactSection = document.getElementById('contact-section');
 const addBookSection = document.getElementById('form_section');
 const booksSection = document.getElementById('books_section');
 
+const dateElement = document.getElementById('date');
+
 let booksArray = [];
 
 let availableStorage;
@@ -121,11 +123,15 @@ function loadBooks() {
   });
 }
 
+function setDateTime() {
+  dateElement.innerHTML = new Date().toLocaleString();
+}
+
 window.onload = () => {
   booksSection.classList.add('visible');
   retrieveData();
   loadBooks();
-
+  setDateTime();
 };
 
 function listHandler(event) {
@@ -146,7 +152,7 @@ function contactHandler(event) {
   event.preventDefault();
   booksSection.style.display = 'none';
   addBookSection.style.display = 'none';
-  contactSection.style.display = 'block';;
+  contactSection.style.display = 'block';
 }
 
 listLink.addEventListener('click', listHandler);

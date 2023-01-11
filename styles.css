@@ -44,7 +44,7 @@ body {
   color: inherit;
 }
 
-.date {
+#date {
   text-align: right;
   margin: 1rem;
 }
@@ -88,18 +88,10 @@ span {
 }
 
 .form_section {
+  margin-top: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.section_line {
-  margin-top: 30px;
-  border: #000 solid 1px;
-  width: 20%;
-  max-width: 150px;
-  box-shadow: 3px 1px #000;
-  background-color: #000;
 }
 
 .form {
