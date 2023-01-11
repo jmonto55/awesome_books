@@ -12,12 +12,12 @@ class Book {
     const newBook = new Book(book.title, book.author);
     booksArray.push(newBook);
     storeData(booksArray);
+    window.location.reload();
   }
 
-  removeBook(book) {
-    // console.log(booksArray);
+  static removeBook(book) {
     booksArray = booksArray.filter((e) => e.id !== book.id);
-    // console.log(booksArray);
+    console.log(booksArray);
     storeData(booksArray);
   }
 }
@@ -86,21 +86,19 @@ const appendBookToDOM = (book) => {
   
   const bookItem = document.createElement('li');
   const removeButton = document.createElement('button');
-  const hr = document.createElement('hr');
-  bookItem.setAttribute('style', 'max-width: 300px;');
+  bookItem.classList.add("book_item");
   removeButton.innerText = 'Remove';
   removeButton.setAttribute('type', 'button');
   removeButton.setAttribute('id', book.id);
+  removeButton.classList.add("remove")
   bookItem.innerHTML = `
-    <span>${book.title}</span> <br>  
-    <span>${book.author}</span> <br>
+    <span>"${book.title}" by ${book.author}</span> 
+   
     `;
   bookItem.append(removeButton);
-  bookItem.append(hr);
   booksList.append(bookItem);
-  removeButton.addEventListener('click', () => {
-    // console.log(book);
-    // book.removeBook(book);
+  removeButton.addEventListener('click',() => {
+    Book.removeBook(book);
     removeBookFromDOM(book);
   });
 };
@@ -119,6 +117,5 @@ bookForm.addEventListener('submit', (event) => {
   );
   newBook.addBook(newBook);
   bookForm.reset();
-  console.log(newBook);
   appendBookToDOM(newBook);
 });
