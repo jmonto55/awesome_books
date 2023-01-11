@@ -40,11 +40,6 @@ class Book {
   }
 }
 
-window.onload = () => {
-  retrieveData();
-  loadBooks();
-};
-
 // Check if local storage available
 function storageAvailable(type) {
   let storage;
@@ -67,8 +62,13 @@ if (storageAvailable('localStorage')) {
   availableStorage = null;
 }
 
+const removeBookFromDOM = (book) => {
+  const removeBtn = document.getElementById(book.id);
+  const bookItem = removeBtn.parentElement;
+  bookItem.parentElement.removeChild(bookItem);
+};
+
 const appendBookToDOM = (book) => {
-  
   const bookItem = document.createElement('li');
   const removeButton = document.createElement('button');
   bookItem.classList.add("book_item");
@@ -88,17 +88,11 @@ const appendBookToDOM = (book) => {
   });
 };
 
-const removeBookFromDOM = (book) => {
-  const removeBtn = document.getElementById(book.id);
-  const bookItem = removeBtn.parentElement;
-  bookItem.parentElement.removeChild(bookItem);
-}
-
 bookForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  let newBook = new Book(
+  const newBook = new Book(
     bookForm.elements.title.value,
-    bookForm.elements.author.value
+    bookForm.elements.author.value,
   );
   Book.addBook(newBook);
   bookForm.reset();
@@ -110,3 +104,8 @@ function loadBooks() {
     appendBookToDOM(book);
   });
 }
+
+window.onload = () => {
+  retrieveData();
+  loadBooks();
+};
